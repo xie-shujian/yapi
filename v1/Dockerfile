@@ -9,6 +9,7 @@ RUN wget https://raw.githubusercontent.com/xie-shujian/yapi/main/v1/config.json
 RUN yapi plugin --name yapi-plugin-cas
 WORKDIR /yapi/vendors
 RUN npm install --production
+RUN wget https://raw.githubusercontent.com/xie-shujian/k3s/main/yapi/entrypoint.sh
 
 FROM node:11.15-alpine
 LABEL maintainer="xiesj@live.com"
