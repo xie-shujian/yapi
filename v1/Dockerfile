@@ -1,18 +1,20 @@
-FROM node:11-alpine as builder
+FROM node:11.15-alpine as builder
+RUN apk add python make git g++
 WORKDIR /yapi
 RUN wget https://github.com/YMFE/yapi/archive/refs/tags/v1.9.2.tar.gz
 RUN tar -zxvf v1.9.2.tar.gz
 RUN mv yapi-1.9.2 vendors
+RUN npm install -g node-gyp yapi-cli ykit
+RUN wget https://raw.githubusercontent.com/xie-shujian/yapi/main/v1/config.json
+RUN yapi plugin --name yapi-plugin-cas
 WORKDIR /yapi/vendors
-RUN apk add python make
 RUN npm install --production
-RUN wget https://raw.githubusercontent.com/xie-shujian/k3s/main/yapi/entrypoint.sh
 
-FROM node:11-alpine
+FROM node:11.15-alpine
 LABEL maintainer="xiesj@live.com"
 ENV TZ="Asia/Shanghai"
 WORKDIR /yapi/vendors
 COPY --from=builder /yapi/vendors /yapi/vendors
-RUN cp config_example.json /yapi/config.json
+COPY --from=builder /yapi/config.json /yapi/config.json
 EXPOSE 3000
 ENTRYPOINT ["sh", "entrypoint.sh"]
