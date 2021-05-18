@@ -1,12 +1,11 @@
 FROM node:11.15-alpine as builder
-RUN apk add python make git g++
+RUN apk add python make git g++ libc6-compat
 WORKDIR /yapi
 RUN wget https://github.com/YMFE/yapi/archive/refs/tags/v1.9.2.tar.gz
 RUN tar -zxvf v1.9.2.tar.gz
 RUN mv yapi-1.9.2 vendors
 RUN npm install -g node-gyp webpack yapi-cli ykit
-RUN cp /yapi/vendors/config_example.json config.json
-RUN yapi plugin --name yapi-plugin-oauth2
+RUN wget https://raw.githubusercontent.com/xie-shujian/yapi/main/v1/config.json
 RUN yapi plugin --name yapi-plugin-export-docx-data
 RUN wget https://raw.githubusercontent.com/inceptiongt/Yapi-plugin-export-docx-data/master/input.docx -O /yapi/vendors/input.docx
 WORKDIR /yapi/vendors
