@@ -22,12 +22,20 @@
   },
   "plugins": [
     {
-      "name": "cas",
+      "name": "qsso",
       "options": {
-        "type": "cas",
-        "LOGIN_SERVER": "http://cas.example.com/cas/login",
-        "AUTH_SERVER" : "https://cas.example.com/cas/serviceValidate",
-        "emailPostfix": "@163.com"
+        "type": "oauth2",
+        "hostscheme": "http",
+        "hostname" : "your.oauth2server",
+        "loginPath": "/api/v4/user",
+        "authPath" : "/oauth/authorize",
+        "tokenPath" : "/oauth/token",
+        "redirectUri" : "http://your.yapiserver/api/plugin/oauth2/callback",
+        "appId" : "xxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "appSecret" : "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "emailKey" : "emailkey",
+        "userKey" : "usernamekey",
+        "emailPostfix" : "@yapi.com"
       }
     }
   ]
