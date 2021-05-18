@@ -1,0 +1,68 @@
+---
+
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: yapi-secret
+stringData:
+  YAPI_DB_PASS: yapipassword
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yapi
+  labels:
+    app: yapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: yapi
+  template:
+    metadata:
+      labels:
+        app: yapi
+    spec:
+      containers:
+      - name: yapi
+        image: xieshujian/yapi:1.9.2
+        env:
+        - name: YAPI_DB_SERVERNAME
+          value: mongodb
+        - name: YAPI_DB_DATABASE
+          value: yapidb
+        - name: YAPI_DB_USER
+          value: yapiuser
+        - name: YAPI_DB_PASS
+          valueFrom:
+            secretKeyRef:
+              name: yapi-secret
+              key: YAPI_DB_PASS
+        - name: YAPI_DB_AUTHSOURCE
+          value: yapidb
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: yapi
+spec:
+  selector:
+    app: yapi
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+
