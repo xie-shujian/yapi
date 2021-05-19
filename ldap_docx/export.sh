@@ -1,7 +1,7 @@
 export YAPI_SERVER_PORT=3000
 export YAPI_TIMEOUT=3000
 export YAPI_DB_PORT=3000
-export YAPI_MAIL_ENABLE=3000
+export YAPI_MAIL_ENABLE=false
 export YAPI_MAIL_PORT=3000
 export YAPI_LDAP_ENABLE=3000
 #test
@@ -26,7 +26,7 @@ if [ $YAPI_DB_DATABASE ]; then
     sed -i "s#YAPI_DB_DATABASE#$YAPI_DB_DATABASE#" $conf_file
 fi
 if [ $YAPI_DB_PORT ]; then
-    sed -i "s#YAPI_DB_PORT#$YAPI_DB_PORT#" $conf_file
+    sed -i "s#\"YAPI_DB_PORT\"#$YAPI_DB_PORT#" $conf_file
 fi
 if [ $YAPI_DB_USER ]; then
     sed -i "s#YAPI_DB_USER#$YAPI_DB_USER#" $conf_file
@@ -39,13 +39,13 @@ if [ $YAPI_DB_AUTHSOURCE ]; then
 fi
 #mail
 if [ $YAPI_MAIL_ENABLE ]; then
-    sed -i "s#YAPI_MAIL_ENABLE#$YAPI_MAIL_ENABLE#" $conf_file
+    sed -i "s#\"YAPI_MAIL_ENABLE\"#$YAPI_MAIL_ENABLE#" $conf_file
 fi
 if [ $YAPI_MAIL_HOST ]; then
     sed -i "s#YAPI_MAIL_HOST#$YAPI_MAIL_HOST#" $conf_file
 fi
 if [ $YAPI_MAIL_PORT ]; then
-    sed -i "s#YAPI_MAIL_PORT#$YAPI_MAIL_PORT#" $conf_file
+    sed -i "s#\"YAPI_MAIL_PORT\"#$YAPI_MAIL_PORT#" $conf_file
 fi
 if [ $YAPI_MAIL_FROM ]; then
     sed -i "s#YAPI_MAIL_FROM#$YAPI_MAIL_FROM#" $conf_file
@@ -58,7 +58,7 @@ if [ $YAPI_MAIL_PASS ]; then
 fi
 #LDAP
 if [ $YAPI_LDAP_ENABLE ]; then
-	sed -i "s#YAPI_LDAP_ENABLE#$YAPI_LDAP_ENABLE#" $conf_file
+	sed -i "s#\"YAPI_LDAP_ENABLE\"#$YAPI_LDAP_ENABLE#" $conf_file
 fi
 if [ $YAPI_LDAP_SERVER ]; then
 	sed -i "s#YAPI_LDAP_SERVER#$YAPI_LDAP_SERVER#" $conf_file
@@ -84,6 +84,3 @@ fi
 if [ $YAPI_LDAP_USERNAMEKEY ]; then
 	sed -i "s#YAPI_LDAP_USERNAMEKEY#$YAPI_LDAP_USERNAMEKEY#" $conf_file
 fi
-cat $conf_file
-#start yapi
-node server/app.js

@@ -6,12 +6,12 @@
     "servername": "YAPI_DB_SERVERNAME",
     "DATABASE": "YAPI_DB_DATABASE",
     "port": 3000,
-    "user": "9999999",
+    "user": "YAPI_DB_USER",
     "pass": "YAPI_DB_PASS",
     "authSource": "YAPI_DB_AUTHSOURCE"
   },
   "mail": {
-    "enable": 3000,
+    "enable": false,
     "host": "YAPI_MAIL_HOST",
     "port": 3000,
     "from": "YAPI_MAIL_FROM",

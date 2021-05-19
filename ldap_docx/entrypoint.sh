@@ -8,7 +8,7 @@ if [ $YAPI_ADMINACCOUNT ]; then
     sed -i "s#YAPI_ADMINACCOUNT#$YAPI_ADMINACCOUNT#" $conf_file
 fi
 if [ $YAPI_TIMEOUT ]; then
-    sed -i "s#YAPI_TIMEOUT#$YAPI_TIMEOUT#" $conf_file
+    sed -i "s#\"YAPI_TIMEOUT\"#$YAPI_TIMEOUT#" $conf_file
 fi
 #mongodb
 if [ $YAPI_DB_SERVERNAME ]; then
