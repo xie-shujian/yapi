@@ -1,7 +1,7 @@
 {
   "port": "YAPI_SERVER_PORT",
   "adminAccount": "YAPI_ADMINACCOUNT",
-  "timeout":YAPI_TIMEOUT,
+  "timeout": YAPI_TIMEOUT,
   "db": {
     "servername": "YAPI_DB_SERVERNAME",
     "DATABASE": "YAPI_DB_DATABASE",

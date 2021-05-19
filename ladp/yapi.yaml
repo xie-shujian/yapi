@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: yapi
-        image: xieshujian/yapi:1.9.2
+        image: xieshujian/yapi:1.9.2-ldap
         env:
         - name: YAPI_SERVER_PORT
           value: "3000"
@@ -38,6 +38,8 @@ spec:
           value: "120000"
         - name: YAPI_DB_SERVERNAME
           value: mongodb
+        - name: YAPI_DB_PORT
+          value: "27017"
         - name: YAPI_DB_DATABASE
           value: yapidb
         - name: YAPI_DB_USER
@@ -54,7 +56,7 @@ spec:
         - name: YAPI_MAIL_PORT
           value: "465"
         - name: YAPI_LDAP_ENABLE
-          value: "true"
+          value: "false"
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000

@@ -76,5 +76,6 @@ fi
 if [ $YAPI_LDAP_USERNAMEKEY ]; then
 	sed -i "s#YAPI_LDAP_USERNAMEKEY#$YAPI_LDAP_USERNAMEKEY#" $conf_file
 fi
+cat $conf_file
 #start yapi
 node server/app.js
