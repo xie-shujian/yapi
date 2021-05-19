@@ -10,7 +10,7 @@ export YAPI_LDAP_ENABLE=3000
 #update config file with env var
 conf_file=config_test.json
 if [ $YAPI_SERVER_PORT ]; then
-    sed -i "s#YAPI_SERVER_PORT#$YAPI_SERVER_PORT#" $conf_file
+    sed -i "s#\"YAPI_SERVER_PORT\"#$YAPI_SERVER_PORT#" $conf_file
 fi
 if [ $YAPI_ADMINACCOUNT ]; then
     sed -i "s#YAPI_ADMINACCOUNT#$YAPI_ADMINACCOUNT#" $conf_file

@@ -1,7 +1,7 @@
 {
-  "port": "3000",
+  "port": 3000,
   "adminAccount": "YAPI_ADMINACCOUNT",
-  "timeout": 3000,
+  "timeout": "3000",
   "db": {
     "servername": "YAPI_DB_SERVERNAME",
     "DATABASE": "YAPI_DB_DATABASE",

@@ -5,7 +5,7 @@ RUN wget https://github.com/YMFE/yapi/archive/refs/tags/v1.9.2.tar.gz
 RUN tar -zxvf v1.9.2.tar.gz
 RUN mv yapi-1.9.2 vendors
 RUN wget https://raw.githubusercontent.com/xie-shujian/yapi/main/ldap_docx/config.json
-RUN npm install -g yapi-cli
+RUN npm install -g yapi-cli ykit
 RUN yapi plugin --name yapi-plugin-export-docx-data
 WORKDIR /yapi/vendors
 RUN npm install --production
