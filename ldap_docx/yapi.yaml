@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: yapi
-        image: xieshujian/yapi:1.9.2-ldap
+        image: xieshujian/yapi:1.9.2-ldap-docx
         env:
         - name: YAPI_SERVER_PORT
           value: "3000"
