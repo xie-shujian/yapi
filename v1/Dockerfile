@@ -6,8 +6,6 @@ RUN tar -zxvf v1.9.2.tar.gz
 RUN mv yapi-1.9.2 vendors
 RUN npm install -g node-gyp webpack yapi-cli ykit
 RUN wget https://raw.githubusercontent.com/xie-shujian/yapi/main/ldap/config.json
-RUN yapi plugin --name yapi-plugin-export-docx-data
-RUN wget https://raw.githubusercontent.com/inceptiongt/Yapi-plugin-export-docx-data/master/input.docx -O /yapi/vendors/input.docx
 WORKDIR /yapi/vendors
 RUN npm install --production
 RUN wget https://raw.githubusercontent.com/xie-shujian/k3s/main/yapi/entrypoint.sh
