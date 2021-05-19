@@ -1,14 +1,13 @@
 FROM node:11.15-alpine as builder
-RUN apk add python make git g++ libc6-compat
+RUN apk add python make
 WORKDIR /yapi
 RUN wget https://github.com/YMFE/yapi/archive/refs/tags/v1.9.2.tar.gz
 RUN tar -zxvf v1.9.2.tar.gz
 RUN mv yapi-1.9.2 vendors
-RUN npm install -g node-gyp webpack yapi-cli ykit
 RUN wget https://raw.githubusercontent.com/xie-shujian/yapi/main/ldap/config.json
 WORKDIR /yapi/vendors
 RUN npm install --production
-RUN wget https://raw.githubusercontent.com/xie-shujian/k3s/main/yapi/entrypoint.sh
+RUN wget https://raw.githubusercontent.com/xie-shujian/yapi/main/ldap/entrypoint.sh
 
 FROM node:11.15-alpine
 LABEL maintainer="xiesj@live.com"

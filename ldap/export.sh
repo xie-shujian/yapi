@@ -1,6 +1,14 @@
-#!/bin/sh
+export YAPI_SERVER_PORT=3000
+export YAPI_TIMEOUT=3000
+export YAPI_DB_PORT=3000
+export YAPI_MAIL_ENABLE=3000
+export YAPI_MAIL_PORT=3000
+export YAPI_LDAP_ENABLE=3000
+#test
+
+
 #update config file with env var
-conf_file=/yapi/config.json
+conf_file=config_test.json
 if [ $YAPI_SERVER_PORT ]; then
     sed -i "s#YAPI_SERVER_PORT#$YAPI_SERVER_PORT#" $conf_file
 fi
@@ -76,5 +84,6 @@ fi
 if [ $YAPI_LDAP_USERNAMEKEY ]; then
 	sed -i "s#YAPI_LDAP_USERNAMEKEY#$YAPI_LDAP_USERNAMEKEY#" $conf_file
 fi
+cat $conf_file
 #start yapi
 node server/app.js

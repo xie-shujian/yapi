@@ -31,13 +31,15 @@ spec:
         image: xieshujian/yapi:1.9.2
         env:
         - name: YAPI_SERVER_PORT
-          value: 3000
+          value: "3000"
         - name: YAPI_ADMINACCOUNT
           value: admin@admin.com
         - name: YAPI_TIMEOUT
-          value: 120000
+          value: "120000"
         - name: YAPI_DB_SERVERNAME
           value: mongodb
+        - name: YAPI_DB_PORT
+          value: "27017"
         - name: YAPI_DB_DATABASE
           value: yapidb
         - name: YAPI_DB_USER
@@ -50,11 +52,13 @@ spec:
         - name: YAPI_DB_AUTHSOURCE
           value: yapidb
         - name: YAPI_MAIL_ENABLE
-          value: false
+          value: "false"
         - name: YAPI_MAIL_PORT
-          value: 465
+          value: "465"
         - name: YAPI_LDAP_ENABLE
-          value: true
+          value: "false"
+        - name: YAPI_LDAP_EMAILPOSTFIX
+          value: "@163.com"
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
