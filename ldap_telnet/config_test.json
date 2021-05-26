@@ -1,0 +1,34 @@
+{
+  "port": "3000",
+  "adminAccount": "YAPI_ADMINACCOUNT",
+  "timeout": 3000,
+  "db": {
+    "servername": "YAPI_DB_SERVERNAME",
+    "DATABASE": "YAPI_DB_DATABASE",
+    "port": 3000,
+    "user": "9999999",
+    "pass": "YAPI_DB_PASS",
+    "authSource": "YAPI_DB_AUTHSOURCE"
+  },
+  "mail": {
+    "enable": 3000,
+    "host": "YAPI_MAIL_HOST",
+    "port": 3000,
+    "from": "YAPI_MAIL_FROM",
+    "auth": {
+      "user": "YAPI_MAIL_USER",
+      "pass": "YAPI_MAIL_PASS"
+    }
+  },
+  "ldapLogin": {
+    "enable": 3000,
+    "server": "YAPI_LDAP_SERVER",
+    "baseDn": "YAPI_LDAP_BASEDN",
+    "bindPassword": "YAPI_LDAP_BINDPASSWORD",
+    "searchDn": "YAPI_LDAP_SEARCHDN",
+    "searchStandard": "YAPI_LDAP_SEARCHSTANDARD",
+    "emailPostfix": "YAPI_LDAP_EMAILPOSTFIX",
+    "emailKey": "YAPI_LDAP_EMAILKEY",
+    "usernameKey": "YAPI_LDAP_USERNAMEKEY"
+ }
+}
