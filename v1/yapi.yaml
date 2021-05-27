@@ -55,10 +55,6 @@ spec:
           value: "false"
         - name: YAPI_MAIL_PORT
           value: "465"
-        - name: YAPI_LDAP_ENABLE
-          value: "false"
-        - name: YAPI_LDAP_EMAILPOSTFIX
-          value: "@163.com"
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
