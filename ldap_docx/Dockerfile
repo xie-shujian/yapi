@@ -17,6 +17,5 @@ ENV TZ="Asia/Shanghai"
 COPY --from=builder /yapi/vendors /yapi/vendors
 COPY --from=builder /yapi/config.json /yapi/config.json
 WORKDIR /yapi/vendors
-RUN cat /yapi/config.json
 EXPOSE 3000
 ENTRYPOINT ["sh", "entrypoint.sh"]
