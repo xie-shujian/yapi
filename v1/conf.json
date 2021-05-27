@@ -1,5 +1,5 @@
 {
-  "port": "YAPI_SERVER_PORT",
+  "port": ,
   "adminAccount": "YAPI_ADMINACCOUNT",
   "timeout": "YAPI_TIMEOUT",
   "db": {
