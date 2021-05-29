@@ -82,3 +82,21 @@ spec:
       port: 80
       targetPort: 3000
 
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: yapi
+spec:
+  rules:
+  - host: yapi.taihu.org
+    http:
+      paths:
+      - backend:
+          service:
+            name: yapi
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
